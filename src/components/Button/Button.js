@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types'; 
 
 const Button = ({ onClick }) => (
-  <button className={onClick}>click for a quote!</button>
+  <button onClick={onClick} >click for a quote!</button>
 ); 
 
-Button.propTyes = {
+Button.propTypes = {
   onClick: PropTypes.func.isRequired
 }; 
 

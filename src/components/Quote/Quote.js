@@ -5,7 +5,7 @@ const Quote = ({ character, quote, image }) => {
   return (
     <>
       <img src={image} />
-      <p>{quote} --{character}</p>;
+      <p>{quote} --{character}</p>
     </>
   );
 }; 
