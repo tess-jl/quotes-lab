@@ -1,13 +1,22 @@
 import { useState, useEffect } from 'react';
-import fetchQuote from '../../services/fetchQuote.js';
+import { fetchQuote } from '../../services/fetchQuote.js';
 
-const useQuote = () => {
+export const useQuote = () => {
   const [quote, setQuote] = useState({});
+  const [loading, setLoading] = useState(true);
+
+  const searchQuote = () => {
+    fetchQuote()
+      .then(newQuote => {
+        setQuote(newQuote);
+        setLoading(false);
+      });
+  };
 
   useEffect(() => {
-    fetchQuote()
-      .then(newQuote => setQuote(newQuote));
+    setLoading(true);
+    searchQuote();
   }, []);
 
-  return quote; 
+  return { quote, searchQuote, loading }; 
 };
