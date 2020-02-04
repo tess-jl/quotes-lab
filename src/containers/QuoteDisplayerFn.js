@@ -16,6 +16,8 @@ const QuoteDisplayerFn = () => {
       .then(quote => onClick({ quoteObj: quote }));
   };
 
+  //no useEffect needed
+
   return (
     <>
       <Button onClick={handleClick} />
