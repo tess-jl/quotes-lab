@@ -1,7 +1,7 @@
 import React, { Component } from 'react'; 
 import Button from '../components/Button/Button.js';
 import Quote from '../components/Quote/Quote.js';
-import fetchQuote from '../services/fetchQuote.js';
+import { fetchQuote } from '../services/fetchQuote.js';
 
 export default class QuoteDisplayer extends Component {
   state = {
