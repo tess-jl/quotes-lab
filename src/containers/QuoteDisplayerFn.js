@@ -4,14 +4,21 @@ import Quote from '../components/Quote/Quote.js';
 
 import { useQuote } from '../components/hooks/quotes.js';
 
+import Parameters from '../components/Parameters/Parameters.js';
+
 
 const QuoteDisplayerFn = () => {
-  const { quote, searchQuote } = useQuote();
- 
+  const { quote, searchQuote, searchQuotesForCharacterAndCount } = useQuote();
+
   return (
     <>
+      <Parameters handleSelection={searchQuotesForCharacterAndCount}/>
+
       <Button handleClick={searchQuote} />
-      { quote.character ? <Quote {...quote} /> : 'loading'}
+    
+      { 
+        quote.character && quote.count ? <SelectedQuotes {...quote} /> : quote.character ? <Quote {...quote} /> : 'loading'
+      }
     </>
   );
 }; 
