@@ -36,7 +36,7 @@ const QuoteDisplayerFn = () => {
       }
 
       { 
-        quote.character ? <Quote {...quote} /> : 'loading'
+        quote.character ? (<> <h2> ... this is your random quote</h2> <Quote {...quote} />  </>)  : 'loading'
       }
 
     </>
