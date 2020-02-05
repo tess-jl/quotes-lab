@@ -37,10 +37,10 @@ const QuoteDisplayerFn = () => {
       <Parameters handleSelection={searchQuotesForCharacterAndCount}/>
 
       <Button handleClick={searchQuote} />
-
+{/* 
       {
-        quotesByParameters.length > 0 ? <ul>{quotesFromArray}</ul> : 'loading'
-      }
+        quotesByParameters.length > 0 ? quotesfromArray() <ul>{quotesFromArray}</ul> : 'loading'
+      } */}
 
       { 
         quote.character ? <Quote {...quote} /> : 'loading'
