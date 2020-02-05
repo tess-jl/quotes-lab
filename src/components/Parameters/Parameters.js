@@ -7,7 +7,7 @@ const characters = [ 'Bender', 'Fry', 'Leela', 'Professor Farnsworth', 'Amy', 'Z
 
 const Parameters = ({ handleSelection }) => {
   const [character, setCharacter] = useState('Bender');
-  const [count, setCount] = useState(1);
+  const [count, setCount] = useState(0);
   
   return (
     <>

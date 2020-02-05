@@ -9,13 +9,10 @@ export const useQuote = () => {
 
   const searchQuotesForCharacterAndCount = (selectedCharacter, selectedCount) => {
     fetchCharacterQuotes(selectedCharacter, selectedCount)
-      .then(() => {
-        setQuotesByParameters();
+      .then(quotes => {
+        setQuotesByParameters(quotes);
       });
   };
-  useEffect(() => {
-    searchQuotesForCharacterAndCount();
-  }, []);
 
 
   const searchQuote = () => {
