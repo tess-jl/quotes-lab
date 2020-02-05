@@ -32,11 +32,16 @@ const QuoteDisplayerFn = () => {
       <Button handleClick={searchQuote} />
 
       {
-        quotesByParameters.length > 0 ? quotesFromArray() : ''
+        quotesByParameters.length > 0 ? quotesFromArray() : 'please submit preferences to see list of quotes'
       }
 
       { 
-        quote.character ? (<> <h2> ... this is your random quote</h2> <Quote {...quote} />  </>)  : 'loading'
+        quote.character ? 
+          (<> 
+            <h2> ... this is your random quote</h2> 
+            <Quote {...quote} /> 
+          </>)  
+          : 'loading random quote'
       }
 
     </>
