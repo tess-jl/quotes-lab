@@ -5,10 +5,7 @@ export const useQuote = () => {
   const [quote, setQuote] = useState({});
   const [loading, setLoading] = useState(true);
 
-  //need state for selectedCharacter and selectedCount
   const [quotesByParameters, setQuotesByParameters] = useState([]);
-  const [selectedCharacter, setCharacter] = useState();
-  const [selectedCount, setCount] = useState();
 
   const searchQuotesForCharacterAndCount = (selectedCharacter, selectedCount) => {
     fetchCharacterQuotes(selectedCharacter, selectedCount)
@@ -16,19 +13,9 @@ export const useQuote = () => {
         setQuotesByParameters();
       });
   };
-
-  const handleCharacterChange = ({ target }) => {
-    setCharacter(target.value);
-  };
-
-  const handleCountChange = ({ target }) => {
-    setCount(target.value);
-  };
-
   useEffect(() => {
     searchQuotesForCharacterAndCount();
-  }, [selectedCharacter, selectedCount]);
-
+  }, []);
 
 
   const searchQuote = () => {
@@ -38,11 +25,10 @@ export const useQuote = () => {
         setLoading(false);
       });
   };
-
   useEffect(() => {
     setLoading(true);
     searchQuote();
   }, []);
 
-  return { quote, searchQuote, loading, handleCharacterChange,handleCountChange, searchQuotesForCharacterAndCount, quotesByParameters }; 
+  return { quote, searchQuote, loading, searchQuotesForCharacterAndCount, quotesByParameters }; 
 };

@@ -1,24 +1,51 @@
 import React from 'react'; 
 import Button from '../components/Button/Button.js';
 import Quote from '../components/Quote/Quote.js';
-
 import { useQuote } from '../components/hooks/quotes.js';
-
 import Parameters from '../components/Parameters/Parameters.js';
 
 
 const QuoteDisplayerFn = () => {
-  const { quote, searchQuote, searchQuotesForCharacterAndCount } = useQuote();
+  const { quote, searchQuote, searchQuotesForCharacterAndCount, quotesByParameters } = useQuote();
+  
+  // const quotesFromArray = () => {
+  //   if(quotesByParameters.length > 0) {
+  //     const quoteItems = quotesByParameters.map((quote, i) => (
+  //       <li key={i}>
+  //         <Quote {...quote} /> 
+  //       </li>
+  //     ));
+  //     return (
+  //       <ul>
+  //         {quoteItems}
+  //       </ul>
+  //     );
+  //   }
+  //   return false;
+  // }; 
+
+  const quotesFromArray = () => {
+    return quotesByParameters.map((quote, i) => (
+      <li key={i}>
+        <Quote {...quote} /> 
+      </li>
+    ));
+  }; 
 
   return (
     <>
       <Parameters handleSelection={searchQuotesForCharacterAndCount}/>
 
       <Button handleClick={searchQuote} />
-    
-      { 
-        quote.character && quote.count ? <SelectedQuotes {...quote} /> : quote.character ? <Quote {...quote} /> : 'loading'
+
+      {
+        quotesByParameters.length > 0 ? <ul>{quotesFromArray}</ul> : 'loading'
       }
+
+      { 
+        quote.character ? <Quote {...quote} /> : 'loading'
+      }
+
     </>
   );
 }; 
