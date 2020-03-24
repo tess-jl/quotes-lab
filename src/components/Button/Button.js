@@ -1,12 +1,12 @@
 import React from 'react'; 
 import PropTypes from 'prop-types'; 
 
-const Button = ({ onClick }) => (
-  <button onClick={onClick} >click for a quote!</button>
+const Button = ({ handleClick }) => (
+  <button onClick={handleClick} >click for a random quote!</button>
 ); 
 
 Button.propTypes = {
-  onClick: PropTypes.func.isRequired
+  handleClick: PropTypes.func.isRequired
 }; 
 
 export default Button; 
